@@ -1,9 +1,4 @@
-//remove this log when done
-console.log("This is Loaded");
-
-
-
 exports.spotify = {
     id: process.env.SPOTIFY_ID,
-    secret: process.env.SPOTIFY_SECRET,
+    secret: process.env.SPOTIFY_SECRET
 };
