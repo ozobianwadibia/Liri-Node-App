@@ -24,6 +24,9 @@
  //***************************************************** */
  const movie = function() {
      movieName += input;
+     let regex = /,/gi;
+     movieName = movieName.replace(regex, " ");
+     //  console.log(movieName);
      if (movieName === "") {
          movieName = "Mr.Nobody";
      }
@@ -46,6 +49,9 @@
  //************************************************************ */
  const band = function() {
      artist += input;
+     let regex = /,/gi;
+     artist = artist.replace(regex, " ");
+     //  console.log(artist);
      request(`https://rest.bandsintown.com/artists/${artist}/events?app_id=codingbootcamp`, { json: true }, (err, res, body) => {
          if (err) { return console.log(err); } else {
              for (let i = 0; i < body.length; i++) {
@@ -64,6 +70,12 @@
  //************************************************************ */
  const music = function() {
          song += input;
+         let regex = /,/gi;
+         song = song.replace(regex, " ");
+         //  console.log(song);
+         if (song === "") {
+             song = "what's my age again";
+         }
          const spotify = new Spotify(keys.spotify);
          spotify.search({ type: "track", query: song }, function(err, data) {
              if (err) {
@@ -81,7 +93,6 @@
      //************************************************************ */
      //FILE READ
      //************************************************************ */
-
  const read = function() {
      fs.readFile("random.txt", "utf8", function(err, content) {
          if (err) {
@@ -92,6 +103,9 @@
          //  console.log(contentList);
          contentList[0] = command;
          contentList[1] += input;
+         let regex = /,/gi;
+         contentList[1] = contentList[1].replace(regex, " ");
+         //  console.log(contentList[1]);
          const spotify = new Spotify(keys.spotify);
          spotify.search({ type: "track", query: contentList[1] }, function(err, data) {
              if (err) {
@@ -123,5 +137,5 @@
          read();
          break;
      default:
-         console.log("Sorry, there is no information");
+         console.log("Sorry, that is not a valid command!");
  }
