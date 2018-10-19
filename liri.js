@@ -117,10 +117,11 @@
                  console.log("Song name: " + data.tracks.items[0].name) //song name
                  console.log("Album of song: " + data.tracks.items[0].album.name) //album name
                  console.log("Preview URL: " + data.tracks.items[0].preview_url) //url
-             };
+             }
          });
      });
  }
+
 
  //switch statements to test and call functions
  switch (command) {
